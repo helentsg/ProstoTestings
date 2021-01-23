@@ -9,21 +9,27 @@
 /* Begin PBXBuildFile section */
 		F30C4E8225BC4424005BC117 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30C4E8125BC4424005BC117 /* AppDelegate.swift */; };
 		F30C4E8425BC4424005BC117 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30C4E8325BC4424005BC117 /* SceneDelegate.swift */; };
-		F30C4E8625BC4424005BC117 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30C4E8525BC4424005BC117 /* ViewController.swift */; };
 		F30C4E8925BC4424005BC117 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F30C4E8725BC4424005BC117 /* Main.storyboard */; };
 		F30C4E8B25BC4429005BC117 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F30C4E8A25BC4429005BC117 /* Assets.xcassets */; };
 		F30C4E8E25BC4429005BC117 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F30C4E8C25BC4429005BC117 /* LaunchScreen.storyboard */; };
+		F30C4E9E25BC4A5F005BC117 /* ImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30C4E9D25BC4A5F005BC117 /* ImagesViewController.swift */; };
+		F30C4EA225BC4B46005BC117 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30C4EA125BC4B46005BC117 /* ImageLoader.swift */; };
+		F30C4EB025BC5F75005BC117 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30C4EAF25BC5F75005BC117 /* ImageCell.swift */; };
+		F30C4EBB25BC84D6005BC117 /* AlertDisplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30C4EBA25BC84D6005BC117 /* AlertDisplayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F30C4E7E25BC4424005BC117 /* ProstoTestings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProstoTestings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F30C4E8125BC4424005BC117 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F30C4E8325BC4424005BC117 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F30C4E8525BC4424005BC117 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F30C4E8825BC4424005BC117 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F30C4E8A25BC4429005BC117 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F30C4E8D25BC4429005BC117 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F30C4E8F25BC4429005BC117 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F30C4E9D25BC4A5F005BC117 /* ImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesViewController.swift; sourceTree = "<group>"; };
+		F30C4EA125BC4B46005BC117 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		F30C4EAF25BC5F75005BC117 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		F30C4EBA25BC84D6005BC117 /* AlertDisplayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertDisplayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +62,66 @@
 		F30C4E8025BC4424005BC117 /* ProstoTestings */ = {
 			isa = PBXGroup;
 			children = (
-				F30C4E8125BC4424005BC117 /* AppDelegate.swift */,
-				F30C4E8325BC4424005BC117 /* SceneDelegate.swift */,
-				F30C4E8525BC4424005BC117 /* ViewController.swift */,
-				F30C4E8725BC4424005BC117 /* Main.storyboard */,
-				F30C4E8A25BC4429005BC117 /* Assets.xcassets */,
-				F30C4E8C25BC4429005BC117 /* LaunchScreen.storyboard */,
+				F30C4EAA25BC50D1005BC117 /* Storyboard */,
+				F30C4E9C25BC4A14005BC117 /* Images */,
+				F30C4E9825BC49D9005BC117 /* Services */,
+				F30C4E9625BC45A9005BC117 /* SupportingFiles */,
+				F30C4EB925BC84A9005BC117 /* Extensions */,
 				F30C4E8F25BC4429005BC117 /* Info.plist */,
+				F30C4E8A25BC4429005BC117 /* Assets.xcassets */,
 			);
 			path = ProstoTestings;
+			sourceTree = "<group>";
+		};
+		F30C4E9625BC45A9005BC117 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				F30C4E8125BC4424005BC117 /* AppDelegate.swift */,
+				F30C4E8325BC4424005BC117 /* SceneDelegate.swift */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		F30C4E9825BC49D9005BC117 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F30C4EA125BC4B46005BC117 /* ImageLoader.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		F30C4E9C25BC4A14005BC117 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				F30C4E9D25BC4A5F005BC117 /* ImagesViewController.swift */,
+				F30C4EAE25BC5F35005BC117 /* ImageCell */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		F30C4EAA25BC50D1005BC117 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				F30C4E8725BC4424005BC117 /* Main.storyboard */,
+				F30C4E8C25BC4429005BC117 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		F30C4EAE25BC5F35005BC117 /* ImageCell */ = {
+			isa = PBXGroup;
+			children = (
+				F30C4EAF25BC5F75005BC117 /* ImageCell.swift */,
+			);
+			path = ImageCell;
+			sourceTree = "<group>";
+		};
+		F30C4EB925BC84A9005BC117 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F30C4EBA25BC84D6005BC117 /* AlertDisplayer.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +194,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F30C4E8625BC4424005BC117 /* ViewController.swift in Sources */,
+				F30C4E9E25BC4A5F005BC117 /* ImagesViewController.swift in Sources */,
+				F30C4EA225BC4B46005BC117 /* ImageLoader.swift in Sources */,
 				F30C4E8225BC4424005BC117 /* AppDelegate.swift in Sources */,
+				F30C4EBB25BC84D6005BC117 /* AlertDisplayer.swift in Sources */,
+				F30C4EB025BC5F75005BC117 /* ImageCell.swift in Sources */,
 				F30C4E8425BC4424005BC117 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
