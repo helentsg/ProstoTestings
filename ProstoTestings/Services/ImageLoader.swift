@@ -31,29 +31,32 @@ class ImageLoader {
             let request = URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: 10)
             URLSession.shared.dataTask(with: request) {(data, response, error) in
                 
-                if let error = error {
-                    /// No Internet Connection
-                    if error._code == NSURLErrorNotConnectedToInternet {
-                        completion(.failure(.offline))
-                        /// Другая ошибка
-                    } else {
-                        completion(.failure(.error(description: error.localizedDescription)))
+                DispatchQueue.main.async {
+                    if let error = error {
+                        /// No Internet Connection
+                        if error._code == NSURLErrorNotConnectedToInternet {
+                            completion(.failure(.offline))
+                            /// Другая ошибка
+                        } else {
+                            completion(.failure(.error(description: error.localizedDescription)))
+                        }
+                        
+                    }
+                    guard let httpResponse = response as? HTTPURLResponse,
+                          (200...299).contains(httpResponse.statusCode) else {
+                        return
+                    }
+                    guard let data = data else {
+                        return
                     }
                     
-                }
-                guard let httpResponse = response as? HTTPURLResponse,
-                      (200...299).contains(httpResponse.statusCode) else {
-                    return
-                }
-                guard let data = data else {
-                    return
-                }
-                
-                if let imageToCache = UIImage(data: data) {
-                    imageCache.setObject(imageToCache, forKey: self.urlString as NSString)
-                    completion(.success(imageToCache))
-                } else {
-                    completion(.failure(.error(description: "Ошибка загрузки")))
+                    if let imageToCache = UIImage(data: data) {
+                        imageCache.setObject(imageToCache, forKey: self.urlString as NSString)
+                        completion(.success(imageToCache))
+                        
+                    } else {
+                        completion(.failure(.error(description: "Ошибка загрузки")))
+                    }
                 }
                 
             }.resume()

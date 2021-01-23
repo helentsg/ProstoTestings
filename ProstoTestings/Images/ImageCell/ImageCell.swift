@@ -35,11 +35,19 @@ extension ImageCell {
     func configure(with number: Int) {
         
         activityIndicator.startAnimating()
+        titleLabel.text = "# \(number)"
+        
         let imageLoader = ImageLoader(for: number)
-        imageLoader.getImage { [weak self] (image) in
+        imageLoader.getImage { [weak self] (result) in
             self?.activityIndicator.stopAnimating()
-            self?.placeholderImageView.image = image
-            self?.titleLabel.text = "# \(number)"
+           
+            switch result {
+            case .success(let image):
+                self?.placeholderImageView.image = image
+            case .failure(let error):
+                print (error.description)
+            }
+            
         }
         
     }

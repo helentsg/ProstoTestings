@@ -10,10 +10,10 @@ enum NetworkRequestError: Error {
     case offline
     case error(description: String)
     
-    var localizedDescription: String {
+    var description: String {
         switch self {
         case .offline:
-            return "No Internet Connection"
+            return "Нет подключения к интернету"
             
         case .error(let description):
             return description

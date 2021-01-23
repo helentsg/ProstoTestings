@@ -54,6 +54,7 @@ extension ImagesViewController {
     
     func setupView() {
         
+        tableView.allowsSelection = false
         tableView.estimatedRowHeight = 125
         tableView.rowHeight = UITableView.automaticDimension
         tableView.prefetchDataSource = self
