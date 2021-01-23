@@ -16,6 +16,7 @@
 		F30C4EA225BC4B46005BC117 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30C4EA125BC4B46005BC117 /* ImageLoader.swift */; };
 		F30C4EB025BC5F75005BC117 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30C4EAF25BC5F75005BC117 /* ImageCell.swift */; };
 		F30C4EBB25BC84D6005BC117 /* AlertDisplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30C4EBA25BC84D6005BC117 /* AlertDisplayer.swift */; };
+		F30C4EC325BCA64E005BC117 /* NetworkRequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30C4EC225BCA64E005BC117 /* NetworkRequestError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		F30C4EA125BC4B46005BC117 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		F30C4EAF25BC5F75005BC117 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		F30C4EBA25BC84D6005BC117 /* AlertDisplayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertDisplayer.swift; sourceTree = "<group>"; };
+		F30C4EC225BCA64E005BC117 /* NetworkRequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				F30C4EA125BC4B46005BC117 /* ImageLoader.swift */,
+				F30C4EC225BCA64E005BC117 /* NetworkRequestError.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 				F30C4EA225BC4B46005BC117 /* ImageLoader.swift in Sources */,
 				F30C4E8225BC4424005BC117 /* AppDelegate.swift in Sources */,
 				F30C4EBB25BC84D6005BC117 /* AlertDisplayer.swift in Sources */,
+				F30C4EC325BCA64E005BC117 /* NetworkRequestError.swift in Sources */,
 				F30C4EB025BC5F75005BC117 /* ImageCell.swift in Sources */,
 				F30C4E8425BC4424005BC117 /* SceneDelegate.swift in Sources */,
 			);
@@ -349,6 +353,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 67ZSXZ9YX9;
 				INFOPLIST_FILE = ProstoTestings/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -356,7 +361,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hibercontechnologies.ProstoTestings;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -368,6 +373,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 67ZSXZ9YX9;
 				INFOPLIST_FILE = ProstoTestings/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -375,7 +381,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hibercontechnologies.ProstoTestings;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

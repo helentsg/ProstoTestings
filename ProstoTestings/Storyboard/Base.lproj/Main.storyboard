@@ -23,9 +23,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="125"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ZzT-R2-0gW">
-                                            <rect key="frame" x="197" y="52.5" width="20" height="20"/>
-                                        </activityIndicatorView>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="sGv-hw-uzh">
                                             <rect key="frame" x="128.5" y="21" width="157" height="80"/>
                                             <subviews>
@@ -44,13 +41,16 @@
                                                 </label>
                                             </subviews>
                                         </stackView>
+                                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ZzT-R2-0gW">
+                                            <rect key="frame" x="158.5" y="51" width="20" height="20"/>
+                                        </activityIndicatorView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="ZzT-R2-0gW" firstAttribute="centerY" secondItem="BV2-ui-vJi" secondAttribute="centerY" id="5BY-Ta-HWS"/>
                                         <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="sGv-hw-uzh" secondAttribute="bottom" constant="10" id="EK8-8E-QZQ"/>
+                                        <constraint firstItem="ZzT-R2-0gW" firstAttribute="centerX" secondItem="BV2-ui-vJi" secondAttribute="centerX" id="GGk-7X-Mmw"/>
                                         <constraint firstItem="sGv-hw-uzh" firstAttribute="centerX" secondItem="IX7-d8-UIT" secondAttribute="centerX" id="cxK-pn-k0J"/>
-                                        <constraint firstItem="ZzT-R2-0gW" firstAttribute="centerX" secondItem="IX7-d8-UIT" secondAttribute="centerX" id="s4b-sv-i3b"/>
                                         <constraint firstItem="sGv-hw-uzh" firstAttribute="top" secondItem="IX7-d8-UIT" secondAttribute="topMargin" constant="10" id="seQ-8C-fOW"/>
-                                        <constraint firstItem="ZzT-R2-0gW" firstAttribute="centerY" secondItem="IX7-d8-UIT" secondAttribute="centerY" id="xsA-JD-VMv"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
