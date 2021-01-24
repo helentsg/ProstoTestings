@@ -13,54 +13,54 @@ class ImageCell: UITableViewCell {
     @IBOutlet weak var titleLabel           : UILabel!
     @IBOutlet weak var activityIndicator    : UIActivityIndicatorView!
     
+    var viewModel: ImageCellViewModelProtocol! {
+        didSet {
+            configureCell()
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        setupView()
+        setupCell()
         
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        titleLabel.text = ""
+        placeholderImageView.image = nil
         
     }
-
+    
 }
 
 //MARK:- Cell Configuration:
 extension ImageCell {
     
-    func configure(with number: Int) {
-        
+    func configureCell() {
+        titleLabel.text = "# \(viewModel.number)"
         activityIndicator.startAnimating()
-        titleLabel.text = "# \(number)"
-        
-        let imageLoader = ImageLoader(for: number)
-        imageLoader.getImage { [weak self] (result) in
+        viewModel.downloadImage {[weak self] (result) in
             self?.activityIndicator.stopAnimating()
-           
             switch result {
             case .success(let image):
                 self?.placeholderImageView.image = image
             case .failure(let error):
-                print (error.description)
+                print(error)
             }
-            
         }
-        
     }
     
 }
 
-//MARK:- Setup View:
+//MARK:- Setup Cell:
 extension ImageCell {
     
-    func setupView() {
+    func setupCell() {
         
         placeholderImageView.layer.cornerRadius = 16
-        
         
     }
     

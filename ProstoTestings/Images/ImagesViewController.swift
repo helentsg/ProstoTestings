@@ -9,17 +9,13 @@ import UIKit
 
 class ImagesViewController: UITableViewController {
     
-    private var startIndex = 0 {
+    var dataSource: UITableViewDiffableDataSource<Section, Item>! = nil
+    
+    private var viewModel: ImagesViewModelProtocol! {
         didSet {
-            array = Array(startIndex ..< endIndex)
+            
         }
     }
-    private var endIndex = 20 {
-        didSet {
-            array = Array(startIndex ..< endIndex)
-        }
-    }
-    private var array = [Int]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,57 +23,71 @@ class ImagesViewController: UITableViewController {
     }
 }
 
-    
-// MARK: - Table view data source
-extension ImagesViewController {
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return array.count
-        
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "imageCell", for: indexPath) as! ImageCell
-        let index = indexPath.row
-        let showNumber = array[index] + 1
-        cell.configure(with: showNumber)
-        return cell
-        
-    }
-
-}
-
 // MARK: - Setup View:
 extension ImagesViewController {
     
     func setupView() {
         
+        viewModel = ImagesViewModel()
+        setupTableView()
+        createDataSource()
+        createInitialSnapshot()
+    }
+    
+    func setupTableView() {
+        
         tableView.allowsSelection = false
         tableView.estimatedRowHeight = 125
         tableView.rowHeight = UITableView.automaticDimension
         tableView.prefetchDataSource = self
-        array = Array(0..<20)
-        tableView.reloadData()
         
     }
     
 }
 
-// MARK: - UITableView Data Source Prefetching:
-extension ImagesViewController: UITableViewDataSourcePrefetching, AlertDisplayer {
+// MARK: - Table View Diffable Data Source:
+extension ImagesViewController {
     
-  func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
-    
-    let lastRow = IndexPath(row: array.count - 1, section: 0)
-    if array.count < 100 && indexPaths.contains(lastRow) {
-        endIndex += 1
-        let indexPath = IndexPath(row: array.count - 1, section: 0)
-        tableView.insertRows(at: [indexPath], with: .fade)
+    func createDataSource() {
+        
+        dataSource = UITableViewDiffableDataSource<Section, Item>(tableView: tableView) {
+            (tableView: UITableView, indexPath: IndexPath, item: Item) -> UITableViewCell? in
+            let cell = tableView.dequeueReusableCell(withIdentifier: "imageCell", for: indexPath) as! ImageCell
+           
+            let cellViewModel = self.viewModel.cellViewModel(at: indexPath)
+            cell.viewModel = cellViewModel
+            
+            return cell
+        }
+        
+        self.dataSource.defaultRowAnimation = .fade
+        
     }
     
-  }
+    func createInitialSnapshot() {
+        
+        var initialSnapshot = NSDiffableDataSourceSnapshot<Section, Item>()
+        initialSnapshot.appendSections([.main])
+        initialSnapshot.appendItems(viewModel.imageObjects)
+        self.dataSource.apply(initialSnapshot, animatingDifferences: true)
+        
+    }
+    
+    
+}
+
+// MARK: - UITableView Data Source Prefetching:
+extension ImagesViewController: UITableViewDataSourcePrefetching {
+
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+
+        let lastRow = IndexPath(row: viewModel.lastRowIndex, section: 0)
+        if viewModel.numberOfRows < 100 && indexPaths.contains(lastRow) {
+            viewModel.endIndex += 1
+            
+        }
+
+    }
 
 }
 
@@ -87,10 +97,8 @@ extension ImagesViewController {
     @IBAction func pullToRefresh(_ sender: UIRefreshControl) {
         sender.endRefreshing()
         var titleString = "Идёт загрузка..."
-        if array.count <= 95 {
-            startIndex -= 5
-            let indexPaths = Array(0..<5).map({ IndexPath(row:$0, section: 0) })
-            tableView.insertRows(at: indexPaths, with: .fade)
+        if viewModel.numberOfRows <= 95 {
+            viewModel.startIndex -= 5
         } else {
             titleString = "Нет данных ..."
         }
