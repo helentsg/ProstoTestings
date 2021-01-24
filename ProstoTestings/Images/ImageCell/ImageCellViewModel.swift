@@ -11,24 +11,20 @@ protocol ImageCellViewModelProtocol {
     
     var number: Int { get }
     init(number: Int)
-    func downloadImage(completion: @escaping (Result<UIImage, NetworkRequestError>) -> Void)
+    var imageLoader : ImageLoader! { get }
     
 }
 
 class ImageCellViewModel: ImageCellViewModelProtocol {
     
     var number : Int
+    var imageLoader : ImageLoader!
     
     required init(number: Int) {
         
         self.number = number
+        imageLoader = ImageLoader.shared
         
     }
-    
-    func downloadImage(completion: @escaping (Result<UIImage, NetworkRequestError>) -> Void) {
-       
-        let imageLoader = ImageLoader(for: number)
-        imageLoader.getImage(completion: completion)
-        
-    }
+
 }

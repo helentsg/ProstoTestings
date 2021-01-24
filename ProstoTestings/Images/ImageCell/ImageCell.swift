@@ -42,7 +42,7 @@ extension ImageCell {
     func configureCell() {
         titleLabel.text = "# \(viewModel.number)"
         activityIndicator.startAnimating()
-        viewModel.downloadImage {[weak self] (result) in
+        viewModel.imageLoader.getImage(for: viewModel.number) {[weak self] (result) in
             self?.activityIndicator.stopAnimating()
             switch result {
             case .success(let image):

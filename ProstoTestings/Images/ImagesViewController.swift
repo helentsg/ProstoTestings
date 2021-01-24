@@ -21,6 +21,7 @@ class ImagesViewController: UITableViewController {
         super.viewDidLoad()
         setupView()
     }
+    
 }
 
 // MARK: - Setup View:
@@ -50,11 +51,11 @@ extension ImagesViewController {
     
     func createDataSource() {
         
-        dataSource = UITableViewDiffableDataSource<Section, Int>(tableView: tableView) {
+        dataSource = UITableViewDiffableDataSource<Section, Int>(tableView: tableView) { [weak self]
             (tableView: UITableView, indexPath: IndexPath, number: Int) -> UITableViewCell? in
             let cell = tableView.dequeueReusableCell(withIdentifier: "imageCell", for: indexPath) as! ImageCell
            
-            let cellViewModel = self.viewModel.cellViewModel(at: indexPath)
+            let cellViewModel = self?.viewModel.cellViewModel(at: indexPath)
             cell.viewModel = cellViewModel
             
             return cell
