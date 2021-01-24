@@ -9,7 +9,7 @@ import UIKit
 
 class ImagesViewController: UITableViewController {
     
-    var dataSource: UITableViewDiffableDataSource<Section, Item>! = nil
+    var dataSource: UITableViewDiffableDataSource<Section, Int>! = nil
     
     private var viewModel: ImagesViewModelProtocol! {
         didSet {
@@ -50,8 +50,8 @@ extension ImagesViewController {
     
     func createDataSource() {
         
-        dataSource = UITableViewDiffableDataSource<Section, Item>(tableView: tableView) {
-            (tableView: UITableView, indexPath: IndexPath, item: Item) -> UITableViewCell? in
+        dataSource = UITableViewDiffableDataSource<Section, Int>(tableView: tableView) {
+            (tableView: UITableView, indexPath: IndexPath, number: Int) -> UITableViewCell? in
             let cell = tableView.dequeueReusableCell(withIdentifier: "imageCell", for: indexPath) as! ImageCell
            
             let cellViewModel = self.viewModel.cellViewModel(at: indexPath)
@@ -66,9 +66,9 @@ extension ImagesViewController {
     
     func createInitialSnapshot() {
         
-        var initialSnapshot = NSDiffableDataSourceSnapshot<Section, Item>()
+        var initialSnapshot = NSDiffableDataSourceSnapshot<Section, Int>()
         initialSnapshot.appendSections([.main])
-        initialSnapshot.appendItems(viewModel.imageObjects)
+        initialSnapshot.appendItems(viewModel.array)
         self.dataSource.apply(initialSnapshot, animatingDifferences: true)
         
     }
@@ -83,7 +83,12 @@ extension ImagesViewController: UITableViewDataSourcePrefetching {
 
         let lastRow = IndexPath(row: viewModel.lastRowIndex, section: 0)
         if viewModel.numberOfRows < 100 && indexPaths.contains(lastRow) {
+            
             viewModel.endIndex += 1
+            var updatedSnapshot = self.dataSource.snapshot()
+            let lastNumber = viewModel.lastNumber
+            updatedSnapshot.appendItems([lastNumber])
+            self.dataSource.apply(updatedSnapshot, animatingDifferences: true)
             
         }
 
@@ -97,8 +102,17 @@ extension ImagesViewController {
     @IBAction func pullToRefresh(_ sender: UIRefreshControl) {
         sender.endRefreshing()
         var titleString = "Идёт загрузка..."
+        let oldFirstNumber = viewModel.firstNumber
+        
         if viewModel.numberOfRows <= 95 {
             viewModel.startIndex -= 5
+            
+            var updatedSnapshot = self.dataSource.snapshot()
+            let firstFiveNumbers = viewModel.firstFiveNumbers
+            updatedSnapshot.insertItems(firstFiveNumbers, beforeItem: oldFirstNumber)
+            
+            self.dataSource.apply(updatedSnapshot, animatingDifferences: true)
+            
         } else {
             titleString = "Нет данных ..."
         }

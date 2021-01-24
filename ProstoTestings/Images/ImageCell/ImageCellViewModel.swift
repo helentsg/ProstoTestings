@@ -17,10 +17,12 @@ protocol ImageCellViewModelProtocol {
 
 class ImageCellViewModel: ImageCellViewModelProtocol {
     
-    var number: Int
-   
+    var number : Int
+    
     required init(number: Int) {
+        
         self.number = number
+        
     }
     
     func downloadImage(completion: @escaping (Result<UIImage, NetworkRequestError>) -> Void) {

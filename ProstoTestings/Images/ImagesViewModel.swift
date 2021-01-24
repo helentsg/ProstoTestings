@@ -11,11 +11,14 @@ import UIKit
 //MARK:- ImagesViewModelProtocol:
 protocol ImagesViewModelProtocol {
     
-    var imageObjects : [Item] { get }
+    var array : [ Int] { get }
+    var firstNumber : Int { get }
+    var firstFiveNumbers : [ Int] { get }
     var numberOfRows : Int { get }
     var lastRowIndex : Int { get }
     var startIndex : Int { get set }
     var endIndex : Int { get set }
+    var lastNumber : Int { get }
     func cellViewModel(at indexPath: IndexPath) -> ImageCellViewModelProtocol?
     
 }
@@ -23,21 +26,25 @@ protocol ImagesViewModelProtocol {
 //MARK:- ImagesViewModel:
 class ImagesViewModel : ImagesViewModelProtocol {
     
-    private var array = [Int]()
-    
-    var imageObjects = [Item]()
+    var array = [Int]()
     
     var startIndex = 0 {
         didSet {
             updateArray()
-            updateImageObjects()
         }
     }
     var endIndex = 20 {
         didSet {
             updateArray()
-            updateImageObjects()
         }
+    }
+    
+    var firstNumber : Int {
+        array.first ?? 0
+    }
+    var firstFiveNumbers : [Int] {
+        let firstFive = Array(array.prefix(5))
+        return firstFive
     }
     
     var numberOfRows : Int {
@@ -45,6 +52,9 @@ class ImagesViewModel : ImagesViewModelProtocol {
     }
     var lastRowIndex : Int {
         array.count - 1
+    }
+    var lastNumber : Int {
+        array.last ?? 0
     }
     
     func updateArray() {
@@ -60,20 +70,6 @@ class ImagesViewModel : ImagesViewModelProtocol {
     
     init() {
         array = Array(0..<20)
-        updateImageObjects()
-    }
-    
-    func updateImageObjects() {
-        
-        // Get our image URLs for processing.
-        if imageObjects.isEmpty {
-            for number in array {
-                if let url = URL(string:"https://via.placeholder.com/150/000000/FFFFFF/?text=\(number)") {
-                    self.imageObjects.append(Item(image: UIImage(systemName: "rectangle")!, url: url))
-                }
-            }
-        }
-        
     }
     
 }

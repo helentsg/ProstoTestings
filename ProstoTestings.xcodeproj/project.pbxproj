@@ -20,8 +20,6 @@
 		F30C4ECA25BCCDB5005BC117 /* ImagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30C4EC925BCCDB5005BC117 /* ImagesViewModel.swift */; };
 		F30C4ECE25BD6AC2005BC117 /* ImageCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30C4ECD25BD6AC2005BC117 /* ImageCellViewModel.swift */; };
 		F30C4ED225BDA4D6005BC117 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30C4ED125BDA4D6005BC117 /* Section.swift */; };
-		F30C4ED525BDA500005BC117 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30C4ED425BDA500005BC117 /* Item.swift */; };
-		F30C4ED825BDA5A3005BC117 /* ImageURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30C4ED725BDA5A3005BC117 /* ImageURLProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,8 +38,6 @@
 		F30C4EC925BCCDB5005BC117 /* ImagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesViewModel.swift; sourceTree = "<group>"; };
 		F30C4ECD25BD6AC2005BC117 /* ImageCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCellViewModel.swift; sourceTree = "<group>"; };
 		F30C4ED125BDA4D6005BC117 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
-		F30C4ED425BDA500005BC117 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-		F30C4ED725BDA5A3005BC117 /* ImageURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageURLProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +95,6 @@
 			isa = PBXGroup;
 			children = (
 				F30C4EA125BC4B46005BC117 /* ImageLoader.swift */,
-				F30C4ED725BDA5A3005BC117 /* ImageURLProtocol.swift */,
 				F30C4EC225BCA64E005BC117 /* NetworkRequestError.swift */,
 			);
 			path = Services;
@@ -108,9 +103,9 @@
 		F30C4E9C25BC4A14005BC117 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				F30C4EAE25BC5F35005BC117 /* ImageCell */,
 				F30C4E9D25BC4A5F005BC117 /* ImagesViewController.swift */,
 				F30C4EC925BCCDB5005BC117 /* ImagesViewModel.swift */,
-				F30C4EAE25BC5F35005BC117 /* ImageCell */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -145,7 +140,6 @@
 			isa = PBXGroup;
 			children = (
 				F30C4ED125BDA4D6005BC117 /* Section.swift */,
-				F30C4ED425BDA500005BC117 /* Item.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -225,9 +219,7 @@
 				F30C4ECA25BCCDB5005BC117 /* ImagesViewModel.swift in Sources */,
 				F30C4E8225BC4424005BC117 /* AppDelegate.swift in Sources */,
 				F30C4EBB25BC84D6005BC117 /* AlertDisplayer.swift in Sources */,
-				F30C4ED825BDA5A3005BC117 /* ImageURLProtocol.swift in Sources */,
 				F30C4ED225BDA4D6005BC117 /* Section.swift in Sources */,
-				F30C4ED525BDA500005BC117 /* Item.swift in Sources */,
 				F30C4ECE25BD6AC2005BC117 /* ImageCellViewModel.swift in Sources */,
 				F30C4EC325BCA64E005BC117 /* NetworkRequestError.swift in Sources */,
 				F30C4EB025BC5F75005BC117 /* ImageCell.swift in Sources */,
