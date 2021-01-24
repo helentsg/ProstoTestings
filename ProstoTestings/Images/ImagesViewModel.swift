@@ -40,7 +40,7 @@ class ImagesViewModel : ImagesViewModelProtocol {
     }
     
     var firstNumber : Int {
-        array.first ?? 0
+        array.first!
     }
     var firstFiveNumbers : [Int] {
         let firstFive = Array(array.prefix(5))
@@ -54,7 +54,7 @@ class ImagesViewModel : ImagesViewModelProtocol {
         array.count - 1
     }
     var lastNumber : Int {
-        array.last ?? 0
+        array.last!
     }
     
     func updateArray() {

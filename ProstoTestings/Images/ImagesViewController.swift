@@ -11,11 +11,7 @@ class ImagesViewController: UITableViewController {
     
     var dataSource: UITableViewDiffableDataSource<Section, Int>! = nil
     
-    private var viewModel: ImagesViewModelProtocol! {
-        didSet {
-            
-        }
-    }
+    private var viewModel: ImagesViewModelProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,7 +69,6 @@ extension ImagesViewController {
         self.dataSource.apply(initialSnapshot, animatingDifferences: true)
         
     }
-    
     
 }
 

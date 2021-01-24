@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		F30C4E8225BC4424005BC117 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30C4E8125BC4424005BC117 /* AppDelegate.swift */; };
-		F30C4E8425BC4424005BC117 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30C4E8325BC4424005BC117 /* SceneDelegate.swift */; };
 		F30C4E8925BC4424005BC117 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F30C4E8725BC4424005BC117 /* Main.storyboard */; };
 		F30C4E8B25BC4429005BC117 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F30C4E8A25BC4429005BC117 /* Assets.xcassets */; };
 		F30C4E8E25BC4429005BC117 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F30C4E8C25BC4429005BC117 /* LaunchScreen.storyboard */; };
@@ -20,12 +19,22 @@
 		F30C4ECA25BCCDB5005BC117 /* ImagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30C4EC925BCCDB5005BC117 /* ImagesViewModel.swift */; };
 		F30C4ECE25BD6AC2005BC117 /* ImageCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30C4ECD25BD6AC2005BC117 /* ImageCellViewModel.swift */; };
 		F30C4ED225BDA4D6005BC117 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30C4ED125BDA4D6005BC117 /* Section.swift */; };
+		F30C4EE725BDF536005BC117 /* ProstoTestingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30C4EE625BDF536005BC117 /* ProstoTestingsTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F30C4EE925BDF536005BC117 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F30C4E7625BC4423005BC117 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F30C4E7D25BC4424005BC117;
+			remoteInfo = ProstoTestings;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		F30C4E7E25BC4424005BC117 /* ProstoTestings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProstoTestings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F30C4E8125BC4424005BC117 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F30C4E8325BC4424005BC117 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F30C4E8825BC4424005BC117 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F30C4E8A25BC4429005BC117 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F30C4E8D25BC4429005BC117 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,10 +47,20 @@
 		F30C4EC925BCCDB5005BC117 /* ImagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesViewModel.swift; sourceTree = "<group>"; };
 		F30C4ECD25BD6AC2005BC117 /* ImageCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCellViewModel.swift; sourceTree = "<group>"; };
 		F30C4ED125BDA4D6005BC117 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		F30C4EE425BDF535005BC117 /* ProstoTestingsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProstoTestingsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F30C4EE625BDF536005BC117 /* ProstoTestingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProstoTestingsTests.swift; sourceTree = "<group>"; };
+		F30C4EE825BDF536005BC117 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		F30C4E7B25BC4424005BC117 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F30C4EE125BDF535005BC117 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -55,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				F30C4E8025BC4424005BC117 /* ProstoTestings */,
+				F30C4EE525BDF535005BC117 /* ProstoTestingsTests */,
 				F30C4E7F25BC4424005BC117 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				F30C4E7E25BC4424005BC117 /* ProstoTestings.app */,
+				F30C4EE425BDF535005BC117 /* ProstoTestingsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -86,7 +107,6 @@
 			isa = PBXGroup;
 			children = (
 				F30C4E8125BC4424005BC117 /* AppDelegate.swift */,
-				F30C4E8325BC4424005BC117 /* SceneDelegate.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -144,6 +164,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		F30C4EE525BDF535005BC117 /* ProstoTestingsTests */ = {
+			isa = PBXGroup;
+			children = (
+				F30C4EE625BDF536005BC117 /* ProstoTestingsTests.swift */,
+				F30C4EE825BDF536005BC117 /* Info.plist */,
+			);
+			path = ProstoTestingsTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -164,6 +193,24 @@
 			productReference = F30C4E7E25BC4424005BC117 /* ProstoTestings.app */;
 			productType = "com.apple.product-type.application";
 		};
+		F30C4EE325BDF535005BC117 /* ProstoTestingsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F30C4EEB25BDF536005BC117 /* Build configuration list for PBXNativeTarget "ProstoTestingsTests" */;
+			buildPhases = (
+				F30C4EE025BDF535005BC117 /* Sources */,
+				F30C4EE125BDF535005BC117 /* Frameworks */,
+				F30C4EE225BDF535005BC117 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F30C4EEA25BDF536005BC117 /* PBXTargetDependency */,
+			);
+			name = ProstoTestingsTests;
+			productName = ProstoTestingsTests;
+			productReference = F30C4EE425BDF535005BC117 /* ProstoTestingsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -175,6 +222,10 @@
 				TargetAttributes = {
 					F30C4E7D25BC4424005BC117 = {
 						CreatedOnToolsVersion = 12.3;
+					};
+					F30C4EE325BDF535005BC117 = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = F30C4E7D25BC4424005BC117;
 					};
 				};
 			};
@@ -192,6 +243,7 @@
 			projectRoot = "";
 			targets = (
 				F30C4E7D25BC4424005BC117 /* ProstoTestings */,
+				F30C4EE325BDF535005BC117 /* ProstoTestingsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -204,6 +256,13 @@
 				F30C4E8E25BC4429005BC117 /* LaunchScreen.storyboard in Resources */,
 				F30C4E8B25BC4429005BC117 /* Assets.xcassets in Resources */,
 				F30C4E8925BC4424005BC117 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F30C4EE225BDF535005BC117 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,11 +282,26 @@
 				F30C4ECE25BD6AC2005BC117 /* ImageCellViewModel.swift in Sources */,
 				F30C4EC325BCA64E005BC117 /* NetworkRequestError.swift in Sources */,
 				F30C4EB025BC5F75005BC117 /* ImageCell.swift in Sources */,
-				F30C4E8425BC4424005BC117 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F30C4EE025BDF535005BC117 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F30C4EE725BDF536005BC117 /* ProstoTestingsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F30C4EEA25BDF536005BC117 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F30C4E7D25BC4424005BC117 /* ProstoTestings */;
+			targetProxy = F30C4EE925BDF536005BC117 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F30C4E8725BC4424005BC117 /* Main.storyboard */ = {
@@ -405,6 +479,46 @@
 			};
 			name = Release;
 		};
+		F30C4EEC25BDF536005BC117 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 67ZSXZ9YX9;
+				INFOPLIST_FILE = ProstoTestingsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hibercontechnologies.ProstoTestingsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProstoTestings.app/ProstoTestings";
+			};
+			name = Debug;
+		};
+		F30C4EED25BDF536005BC117 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 67ZSXZ9YX9;
+				INFOPLIST_FILE = ProstoTestingsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hibercontechnologies.ProstoTestingsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProstoTestings.app/ProstoTestings";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -422,6 +536,15 @@
 			buildConfigurations = (
 				F30C4E9325BC4429005BC117 /* Debug */,
 				F30C4E9425BC4429005BC117 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F30C4EEB25BDF536005BC117 /* Build configuration list for PBXNativeTarget "ProstoTestingsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F30C4EEC25BDF536005BC117 /* Debug */,
+				F30C4EED25BDF536005BC117 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
