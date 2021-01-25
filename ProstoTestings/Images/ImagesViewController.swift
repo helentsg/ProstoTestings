@@ -9,7 +9,7 @@ import UIKit
 
 class ImagesViewController: UITableViewController {
     
-    var dataSource: UITableViewDiffableDataSource<Section, Int>! = nil
+    var dataSource: UITableViewDiffableDataSource<Section, Item>! = nil
     
     private var viewModel: ImagesViewModelProtocol!
     
@@ -43,16 +43,37 @@ extension ImagesViewController {
 }
 
 // MARK: - Table View Diffable Data Source:
-extension ImagesViewController {
+extension ImagesViewController : AlertDisplayer {
     
     func createDataSource() {
         
-        dataSource = UITableViewDiffableDataSource<Section, Int>(tableView: tableView) { [weak self]
-            (tableView: UITableView, indexPath: IndexPath, number: Int) -> UITableViewCell? in
+        dataSource = UITableViewDiffableDataSource<Section, Item>(tableView: tableView) { [weak self]
+            (tableView: UITableView, indexPath: IndexPath, item: Item) -> UITableViewCell? in
+            
+            guard let self = self else {
+                return nil
+            }
             let cell = tableView.dequeueReusableCell(withIdentifier: "imageCell", for: indexPath) as! ImageCell
-           
-            let cellViewModel = self?.viewModel.cellViewModel(at: indexPath)
+            
+            let cellViewModel = self.viewModel.cellViewModel(at: indexPath)
             cell.viewModel = cellViewModel
+            
+            ImageLoader.shared.downloadImage(withURL: item.url, forItem: item) { (result) in
+                switch result {
+                case .success((let fetchedItem, let fetchedImage)):
+                    if let image = fetchedImage, image != fetchedItem.image {
+                        var updatedSnapshot = self.dataSource.snapshot()
+                        if let datasourceIndex = updatedSnapshot.indexOfItem(fetchedItem) {
+                            let item = self.viewModel.items[datasourceIndex]
+                            item.image = image
+                            updatedSnapshot.reloadItems([item])
+                            self.dataSource.apply(updatedSnapshot, animatingDifferences: true)
+                        }
+                    }
+                case .failure(let error):
+                    self.displayAlert(with: "", message: error.description)
+                }
+            }
             
             return cell
         }
@@ -63,9 +84,9 @@ extension ImagesViewController {
     
     func createInitialSnapshot() {
         
-        var initialSnapshot = NSDiffableDataSourceSnapshot<Section, Int>()
+        var initialSnapshot = NSDiffableDataSourceSnapshot<Section, Item>()
         initialSnapshot.appendSections([.main])
-        initialSnapshot.appendItems(viewModel.array)
+        initialSnapshot.appendItems(viewModel.items)
         self.dataSource.apply(initialSnapshot, animatingDifferences: true)
         
     }

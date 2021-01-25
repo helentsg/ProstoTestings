@@ -10,20 +10,17 @@ import UIKit
 class ImageLoader {
     
     static let shared = ImageLoader()
-    var imageCache = NSCache<NSString, UIImage>()
+    var imageCache = NSCache<NSURL, UIImage>()
     
     private init() {
         
     }
     
-    func getImage(for number: Int, completion: @escaping (Result<UIImage, NetworkRequestError>) -> Void) {
+    func downloadImage(withURL url: URL, forItem item: Item, completion: @escaping (Result<(Item, UIImage?), NetworkRequestError>) -> Void) {
         
-        let urlString = "https://via.placeholder.com/150/000000/FFFFFF/?text=\(number)"
-        guard let url = URL(string: urlString) else { return }
-        
-        if let imageFromCache = imageCache.object(forKey: urlString as NSString) {
+        if let imageFromCache = imageCache.object(forKey: url as NSURL) {
             
-            completion(.success(imageFromCache))
+            completion(.success((item, imageFromCache)))
             
         } else {
             
@@ -33,7 +30,7 @@ class ImageLoader {
                 guard let self = self else {
                     return
                 }
-
+                
                 if let error = error {
                     /// No Internet Connection
                     if error._code == NSURLErrorNotConnectedToInternet {
@@ -60,10 +57,11 @@ class ImageLoader {
                     return
                 }
                 
-                self.imageCache.setObject(imageToCache, forKey: urlString as NSString)
+                self.imageCache.setObject(imageToCache, forKey: url as NSURL)
                 
                 DispatchQueue.main.async {
-                    completion(.success(imageToCache))
+                    
+                    completion(.success((item, imageToCache)))
                 }
                 
             }.resume()

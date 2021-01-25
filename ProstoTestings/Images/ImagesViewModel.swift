@@ -11,7 +11,7 @@ import UIKit
 //MARK:- ImagesViewModelProtocol:
 protocol ImagesViewModelProtocol {
     
-    var array : [ Int] { get }
+    var items : [ Item] { get }
     var firstNumber : Int { get }
     var firstFiveNumbers : [ Int] { get }
     var numberOfRows : Int { get }
@@ -26,7 +26,8 @@ protocol ImagesViewModelProtocol {
 //MARK:- ImagesViewModel:
 class ImagesViewModel : ImagesViewModelProtocol {
     
-    var array = [Int]()
+    var items = [Item]()
+    private var array = [Int]()
     
     var startIndex = 0 {
         didSet {
@@ -61,6 +62,13 @@ class ImagesViewModel : ImagesViewModelProtocol {
         array = Array(startIndex ..< endIndex)
     }
     
+    func downloadImage(withURL url: URL, forCell cell: UITableViewCell) {
+        
+        let imageLoader = ImageLoader.shared
+        imageLoader.downloadImage(withURL: , forCell: <#T##UITableViewCell#>, completion: <#T##(Result<(UITableViewCell, UIImage?), NetworkRequestError>) -> Void#>)
+        
+    }
+    
     func cellViewModel(at indexPath: IndexPath) -> ImageCellViewModelProtocol? {
         
         let number = array[indexPath.row] + 1
@@ -69,7 +77,10 @@ class ImagesViewModel : ImagesViewModelProtocol {
     }
     
     init() {
+        
         array = Array(0..<20)
+        items = array.map({Item(number: $0, image: UIImage(systemName: "rectangle")!)})
+        
     }
     
 }

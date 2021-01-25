@@ -20,6 +20,7 @@
 		F30C4ECE25BD6AC2005BC117 /* ImageCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30C4ECD25BD6AC2005BC117 /* ImageCellViewModel.swift */; };
 		F30C4ED225BDA4D6005BC117 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30C4ED125BDA4D6005BC117 /* Section.swift */; };
 		F30C4EE725BDF536005BC117 /* ProstoTestingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30C4EE625BDF536005BC117 /* ProstoTestingsTests.swift */; };
+		F30C4EF325BEA714005BC117 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30C4EF225BEA714005BC117 /* Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		F30C4EE425BDF535005BC117 /* ProstoTestingsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProstoTestingsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F30C4EE625BDF536005BC117 /* ProstoTestingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProstoTestingsTests.swift; sourceTree = "<group>"; };
 		F30C4EE825BDF536005BC117 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F30C4EF225BEA714005BC117 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				F30C4ED125BDA4D6005BC117 /* Section.swift */,
+				F30C4EF225BEA714005BC117 /* Item.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F30C4EF325BEA714005BC117 /* Item.swift in Sources */,
 				F30C4E9E25BC4A5F005BC117 /* ImagesViewController.swift in Sources */,
 				F30C4EA225BC4B46005BC117 /* ImageLoader.swift in Sources */,
 				F30C4ECA25BCCDB5005BC117 /* ImagesViewModel.swift in Sources */,
