@@ -24,7 +24,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="sGv-hw-uzh">
-                                            <rect key="frame" x="128.5" y="21" width="157" height="80"/>
+                                            <rect key="frame" x="127" y="22.5" width="160.5" height="80"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BV2-ui-vJi">
                                                     <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
@@ -34,23 +34,24 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="otr-uq-wTP">
-                                                    <rect key="frame" x="130" y="0.0" width="27" height="80"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <rect key="frame" x="130" y="0.0" width="30.5" height="80"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </stackView>
                                         <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ZzT-R2-0gW">
-                                            <rect key="frame" x="158.5" y="51" width="20" height="20"/>
+                                            <rect key="frame" x="157" y="52.5" width="20" height="20"/>
                                         </activityIndicatorView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="ZzT-R2-0gW" firstAttribute="centerY" secondItem="BV2-ui-vJi" secondAttribute="centerY" id="5BY-Ta-HWS"/>
-                                        <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="sGv-hw-uzh" secondAttribute="bottom" constant="10" id="EK8-8E-QZQ"/>
                                         <constraint firstItem="ZzT-R2-0gW" firstAttribute="centerX" secondItem="BV2-ui-vJi" secondAttribute="centerX" id="GGk-7X-Mmw"/>
                                         <constraint firstItem="sGv-hw-uzh" firstAttribute="centerX" secondItem="IX7-d8-UIT" secondAttribute="centerX" id="cxK-pn-k0J"/>
-                                        <constraint firstItem="sGv-hw-uzh" firstAttribute="top" secondItem="IX7-d8-UIT" secondAttribute="topMargin" constant="10" id="seQ-8C-fOW"/>
+                                        <constraint firstItem="sGv-hw-uzh" firstAttribute="top" relation="greaterThanOrEqual" secondItem="IX7-d8-UIT" secondAttribute="topMargin" constant="10" id="g4V-3l-ryX"/>
+                                        <constraint firstItem="sGv-hw-uzh" firstAttribute="centerY" secondItem="IX7-d8-UIT" secondAttribute="centerY" id="s6C-AD-gTE"/>
+                                        <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="sGv-hw-uzh" secondAttribute="bottom" constant="10" id="sAh-Hj-mSB"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -66,6 +67,7 @@
                         </connections>
                     </tableView>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="a2S-A8-CaX">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <attributedString key="attributedTitle"/>
                         <connections>

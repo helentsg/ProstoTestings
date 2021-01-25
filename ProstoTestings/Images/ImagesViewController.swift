@@ -8,7 +8,7 @@
 import UIKit
 
 class ImagesViewController: UITableViewController {
-    
+
     var dataSource: UITableViewDiffableDataSource<Section, Item>! = nil
     
     private var viewModel: ImagesViewModelProtocol!
@@ -43,7 +43,7 @@ extension ImagesViewController {
 }
 
 // MARK: - Table View Diffable Data Source:
-extension ImagesViewController : AlertDisplayer {
+extension ImagesViewController {
     
     func createDataSource() {
         

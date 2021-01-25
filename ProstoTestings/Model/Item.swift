@@ -20,7 +20,7 @@ class Item: Hashable {
         return lhs.identifier == rhs.identifier
     }
     
-    init(number: Int, image: UIImage) {
+    init(number: Int) {
         self.number = number
         self.url = URL(string: "https://via.placeholder.com/150/000000/FFFFFF/?text=\(number)")!
     }

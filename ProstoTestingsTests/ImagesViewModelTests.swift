@@ -8,7 +8,7 @@
 import XCTest
 @testable import ProstoTestings
 
-class ProstoTestingsTests: XCTestCase {
+class ImagesViewModelTests: XCTestCase {
 
     var sut : ImagesViewModel!
     

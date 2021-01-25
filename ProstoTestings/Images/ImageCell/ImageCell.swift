@@ -69,7 +69,6 @@ extension ImageCell {
     
     func setupCell() {
         
-        
         placeholderImageView.layer.cornerRadius = 16
         
     }

@@ -28,7 +28,7 @@ protocol ImagesViewModelProtocol {
 class ImagesViewModel : ImagesViewModelProtocol {
     
     var items = [Item]()
-    private var array = [Int]()
+    private(set) var array = [Int]()
     
     var startIndex = 0 {
         didSet {
@@ -65,7 +65,7 @@ class ImagesViewModel : ImagesViewModelProtocol {
     init() {
         
         array = Array(0..<20)
-        items = array.map({Item(number: $0, image: UIImage(systemName: "rectangle")!)})
+        items = array.map({Item(number: $0)})
         
     }
 }
@@ -79,12 +79,12 @@ extension ImagesViewModel {
     
     func addNewFirstFiveToItems() {
         let firstFiveNumbers = Array(array.prefix(5))
-        let five = firstFiveNumbers.map({ Item(number: $0, image: UIImage(systemName: "rectangle")!) })
+        let five = firstFiveNumbers.map({ Item(number: $0) })
         items.insert(contentsOf: five, at: 0)
     }
     
     func addNewLastItemToItems() {
-        let item = Item(number: array.last!, image: UIImage(systemName: "rectangle")!)
+        let item = Item(number: array.last!)
         items.append(item)
     }
     
@@ -95,7 +95,7 @@ extension ImagesViewModel {
     
     func cellViewModel(at indexPath: IndexPath) -> ImageCellViewModelProtocol? {
         
-        let number = array[indexPath.row] + 1
+        let number = array[indexPath.row]
         if let item = items.filter({ $0.number == number }).first {
             return ImageCellViewModel(item: item)
         } else {
