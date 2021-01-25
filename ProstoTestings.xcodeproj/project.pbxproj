@@ -21,6 +21,7 @@
 		F30C4ED225BDA4D6005BC117 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30C4ED125BDA4D6005BC117 /* Section.swift */; };
 		F30C4EE725BDF536005BC117 /* ProstoTestingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30C4EE625BDF536005BC117 /* ProstoTestingsTests.swift */; };
 		F30C4EF325BEA714005BC117 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30C4EF225BEA714005BC117 /* Item.swift */; };
+		F30C4EF725BECCBA005BC117 /* ImageURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30C4EF625BECCBA005BC117 /* ImageURLProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		F30C4EE625BDF536005BC117 /* ProstoTestingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProstoTestingsTests.swift; sourceTree = "<group>"; };
 		F30C4EE825BDF536005BC117 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F30C4EF225BEA714005BC117 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		F30C4EF625BECCBA005BC117 /* ImageURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageURLProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 			children = (
 				F30C4EA125BC4B46005BC117 /* ImageLoader.swift */,
 				F30C4EC225BCA64E005BC117 /* NetworkRequestError.swift */,
+				F30C4EF625BECCBA005BC117 /* ImageURLProtocol.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F30C4EF725BECCBA005BC117 /* ImageURLProtocol.swift in Sources */,
 				F30C4EF325BEA714005BC117 /* Item.swift in Sources */,
 				F30C4E9E25BC4A5F005BC117 /* ImagesViewController.swift in Sources */,
 				F30C4EA225BC4B46005BC117 /* ImageLoader.swift in Sources */,
