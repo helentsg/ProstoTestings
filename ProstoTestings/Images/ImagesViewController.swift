@@ -103,8 +103,8 @@ extension ImagesViewController: UITableViewDataSourcePrefetching {
             
             viewModel.endIndex += 1
             var updatedSnapshot = self.dataSource.snapshot()
-            let lastNumber = viewModel.lastNumber
-            updatedSnapshot.appendItems([lastNumber])
+            let lastItem = viewModel.lastItem
+            updatedSnapshot.appendItems([lastItem])
             self.dataSource.apply(updatedSnapshot, animatingDifferences: true)
             
         }
@@ -119,14 +119,14 @@ extension ImagesViewController {
     @IBAction func pullToRefresh(_ sender: UIRefreshControl) {
         sender.endRefreshing()
         var titleString = "Идёт загрузка..."
-        let oldFirstNumber = viewModel.firstNumber
+        let oldFirstItem = viewModel.firstItem
         
         if viewModel.numberOfRows <= 95 {
             viewModel.startIndex -= 5
             
             var updatedSnapshot = self.dataSource.snapshot()
-            let firstFiveNumbers = viewModel.firstFiveNumbers
-            updatedSnapshot.insertItems(firstFiveNumbers, beforeItem: oldFirstNumber)
+            let firstFiveItems = viewModel.firstFiveItems
+            updatedSnapshot.insertItems(firstFiveItems, beforeItem: oldFirstItem)
             
             self.dataSource.apply(updatedSnapshot, animatingDifferences: true)
             

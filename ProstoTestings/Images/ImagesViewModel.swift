@@ -12,13 +12,13 @@ import UIKit
 protocol ImagesViewModelProtocol {
     
     var items : [ Item] { get }
-    var firstNumber : Int { get }
-    var firstFiveNumbers : [ Int] { get }
+    var firstItem : Item { get }
+    var firstFiveItems : [Item] { get }
     var numberOfRows : Int { get }
     var lastRowIndex : Int { get }
     var startIndex : Int { get set }
     var endIndex : Int { get set }
-    var lastNumber : Int { get }
+    var lastItem : Item { get }
     func cellViewModel(at indexPath: IndexPath) -> ImageCellViewModelProtocol?
     
 }
@@ -32,19 +32,22 @@ class ImagesViewModel : ImagesViewModelProtocol {
     var startIndex = 0 {
         didSet {
             updateArray()
+            addNewFirstFiveToItems()
         }
     }
     var endIndex = 20 {
         didSet {
             updateArray()
+            addNewLastItemToItems()
         }
     }
     
-    var firstNumber : Int {
-        array.first!
+    var firstItem : Item {
+        items.first!
     }
-    var firstFiveNumbers : [Int] {
-        let firstFive = Array(array.prefix(5))
+    
+    var firstFiveItems : [Item] {
+        let firstFive = Array(items.prefix(5))
         return firstFive
     }
     
@@ -54,25 +57,33 @@ class ImagesViewModel : ImagesViewModelProtocol {
     var lastRowIndex : Int {
         array.count - 1
     }
-    var lastNumber : Int {
-        array.last!
+    var lastItem : Item {
+        items.last!
     }
     
     func updateArray() {
         array = Array(startIndex ..< endIndex)
     }
     
-    func downloadImage(withURL url: URL, forCell cell: UITableViewCell) {
-        
-        let imageLoader = ImageLoader.shared
-        imageLoader.downloadImage(withURL: , forCell: <#T##UITableViewCell#>, completion: <#T##(Result<(UITableViewCell, UIImage?), NetworkRequestError>) -> Void#>)
-        
+    func addNewFirstFiveToItems() {
+        let firstFiveNumbers = Array(array.prefix(5))
+        let five = firstFiveNumbers.map({ Item(number: $0, image: UIImage(systemName: "rectangle")!) })
+        items.insert(contentsOf: five, at: 0)
+    }
+    
+    func addNewLastItemToItems() {
+        let item = Item(number: array.last!, image: UIImage(systemName: "rectangle")!)
+        items.append(item)
     }
     
     func cellViewModel(at indexPath: IndexPath) -> ImageCellViewModelProtocol? {
         
         let number = array[indexPath.row] + 1
-        return ImageCellViewModel(number: number)
+        if let item = items.filter({ $0.number == number }).first {
+            return ImageCellViewModel(item: item)
+        } else {
+            return nil
+        }
         
     }
     

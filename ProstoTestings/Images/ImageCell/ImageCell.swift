@@ -40,17 +40,11 @@ class ImageCell: UITableViewCell {
 extension ImageCell {
     
     func configureCell() {
+        
         titleLabel.text = "# \(viewModel.number)"
-        activityIndicator.startAnimating()
-        viewModel.imageLoader.getImage(for: viewModel.number) {[weak self] (result) in
-            self?.activityIndicator.stopAnimating()
-            switch result {
-            case .success(let image):
-                self?.placeholderImageView.image = image
-            case .failure(let error):
-                print(error)
-            }
-        }
+        placeholderImageView.image = viewModel.image
+        viewModel.image == nil ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
+        
     }
     
 }
@@ -59,6 +53,7 @@ extension ImageCell {
 extension ImageCell {
     
     func setupCell() {
+        
         
         placeholderImageView.layer.cornerRadius = 16
         

@@ -10,20 +10,19 @@ import UIKit
 protocol ImageCellViewModelProtocol {
     
     var number: Int { get }
-    init(number: Int)
-    var imageLoader : ImageLoader! { get }
+    var image : UIImage! { get }
     
 }
 
 class ImageCellViewModel: ImageCellViewModelProtocol {
     
     var number : Int
-    var imageLoader : ImageLoader!
+    var image  : UIImage!
     
-    required init(number: Int) {
+    required init(item: Item) {
         
-        self.number = number
-        imageLoader = ImageLoader.shared
+        self.number = item.number
+        self.image  = item.image
         
     }
 
