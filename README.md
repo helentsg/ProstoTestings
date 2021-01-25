@@ -1,6 +1,4 @@
-# ProstoTestings
-
-Images Loader
+# Images Loader
 
 - MVVM, Storyboard
 - Diffable Data Source
