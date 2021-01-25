@@ -25,7 +25,7 @@ class ImageCell: UITableViewCell {
         setupCell()
         
     }
-
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         
@@ -42,13 +42,28 @@ extension ImageCell {
     func configureCell() {
         
         titleLabel.text = "# \(viewModel.number)"
-        placeholderImageView.image = viewModel.image
-        viewModel.image == nil ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
+        activityIndicator.startAnimating()
         
+        viewModel.downloadImage(withURL: viewModel.url, forCell: self) {[weak self] (result) in
+            guard let self = self else {
+                return
+            }
+            self.activityIndicator.stopAnimating()
+            switch result {
+            case .success((let fetchedCell, let fetchedImage)):
+                if let imageCell = fetchedCell as? ImageCell,
+                   imageCell.tag == self.viewModel.number,
+                   let image = fetchedImage,
+                   image != self.placeholderImageView.image {
+                    self.placeholderImageView.image = image
+                }
+            case .failure(let error):
+                print(error.description)
+            }
+        }
     }
     
 }
-
 //MARK:- Setup Cell:
 extension ImageCell {
     

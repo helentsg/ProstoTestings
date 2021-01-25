@@ -28,6 +28,7 @@ class ImageURLProtocol: URLProtocol {
     
     final override func startLoading() {
         guard let reqURL = request.url, let urlClient = client else {
+            print ("D ghjnrjrjkt")
             return
         }
         

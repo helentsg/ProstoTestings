@@ -58,23 +58,6 @@ extension ImagesViewController : AlertDisplayer {
             let cellViewModel = self.viewModel.cellViewModel(at: indexPath)
             cell.viewModel = cellViewModel
             
-            ImageLoader.shared.downloadImage(withURL: item.url, forItem: item) { (result) in
-                switch result {
-                case .success((let fetchedItem, let fetchedImage)):
-                    if let image = fetchedImage, image != fetchedItem.image {
-                        var updatedSnapshot = self.dataSource.snapshot()
-                        if let datasourceIndex = updatedSnapshot.indexOfItem(fetchedItem) {
-                            let item = self.viewModel.items[datasourceIndex]
-                            item.image = image
-                            updatedSnapshot.reloadItems([item])
-                            self.dataSource.apply(updatedSnapshot, animatingDifferences: true)
-                        }
-                    }
-                case .failure(let error):
-                    self.displayAlert(with: "", message: error.description)
-                }
-            }
-            
             return cell
         }
         
@@ -95,9 +78,9 @@ extension ImagesViewController : AlertDisplayer {
 
 // MARK: - UITableView Data Source Prefetching:
 extension ImagesViewController: UITableViewDataSourcePrefetching {
-
+    
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
-
+        
         let lastRow = IndexPath(row: viewModel.lastRowIndex, section: 0)
         if viewModel.numberOfRows < 100 && indexPaths.contains(lastRow) {
             
@@ -108,9 +91,9 @@ extension ImagesViewController: UITableViewDataSourcePrefetching {
             self.dataSource.apply(updatedSnapshot, animatingDifferences: true)
             
         }
-
+        
     }
-
+    
 }
 
 // MARK: - Actions:

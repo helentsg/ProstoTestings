@@ -10,7 +10,6 @@ import UIKit
 class Item: Hashable {
     
     let number: Int!
-    var image: UIImage!
     let url: URL!
     let identifier = UUID()
     
@@ -23,7 +22,6 @@ class Item: Hashable {
     
     init(number: Int, image: UIImage) {
         self.number = number
-        self.image = image
         self.url = URL(string: "https://via.placeholder.com/150/000000/FFFFFF/?text=\(number)")!
     }
 

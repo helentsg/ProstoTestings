@@ -10,20 +10,28 @@ import UIKit
 protocol ImageCellViewModelProtocol {
     
     var number: Int { get }
-    var image : UIImage! { get }
+    var url  : URL { get }
+    func downloadImage(withURL url: URL, forCell cell: UITableViewCell, completion: @escaping (Result<(UITableViewCell, UIImage?), NetworkRequestError>) -> Void)
     
 }
 
 class ImageCellViewModel: ImageCellViewModelProtocol {
     
     var number : Int
-    var image  : UIImage!
+    var url  : URL
     
     required init(item: Item) {
         
         self.number = item.number
-        self.image  = item.image
+        self.url = item.url
         
     }
 
+    func downloadImage(withURL url: URL, forCell cell: UITableViewCell, completion: @escaping (Result<(UITableViewCell, UIImage?), NetworkRequestError>) -> Void) {
+        cell.tag = number
+        ImageLoader.shared.downloadImage(withURL: url, forCell: cell, completion: completion)
+        
+    }
 }
+
+

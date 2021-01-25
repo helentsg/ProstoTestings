@@ -20,6 +20,7 @@ protocol ImagesViewModelProtocol {
     var endIndex : Int { get set }
     var lastItem : Item { get }
     func cellViewModel(at indexPath: IndexPath) -> ImageCellViewModelProtocol?
+    func itemForNumber(_ number: Int) -> Item?
     
 }
 
@@ -61,6 +62,17 @@ class ImagesViewModel : ImagesViewModelProtocol {
         items.last!
     }
     
+    init() {
+        
+        array = Array(0..<20)
+        items = array.map({Item(number: $0, image: UIImage(systemName: "rectangle")!)})
+        
+    }
+}
+
+//MARK:- Methods:
+extension ImagesViewModel {
+    
     func updateArray() {
         array = Array(startIndex ..< endIndex)
     }
@@ -76,6 +88,11 @@ class ImagesViewModel : ImagesViewModelProtocol {
         items.append(item)
     }
     
+    func itemForNumber(_ number: Int) -> Item? {
+        let item = items.filter({ $0.number == number }).first
+        return item
+    }
+    
     func cellViewModel(at indexPath: IndexPath) -> ImageCellViewModelProtocol? {
         
         let number = array[indexPath.row] + 1
@@ -84,13 +101,6 @@ class ImagesViewModel : ImagesViewModelProtocol {
         } else {
             return nil
         }
-        
-    }
-    
-    init() {
-        
-        array = Array(0..<20)
-        items = array.map({Item(number: $0, image: UIImage(systemName: "rectangle")!)})
         
     }
     
